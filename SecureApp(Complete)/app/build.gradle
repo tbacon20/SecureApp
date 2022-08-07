@@ -1,0 +1,68 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "com.example.amplify_java"
+        minSdk 21
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        // QR Scanner
+        multiDexEnabled true
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        coreLibraryDesugaringEnabled true
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.annotation:annotation:1.4.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    // AMPLIFY LIBRARIES
+    implementation 'com.amplifyframework:aws-api:1.36.2'
+    implementation 'com.amplifyframework:aws-datastore:1.35.4'
+    // AMPLIFY PLUGINS
+    implementation 'com.amplifyframework:core:1.36.2'
+    implementation 'com.amplifyframework:aws-api:1.36.2'
+    implementation 'com.amplifyframework:aws-datastore:1.35.4'
+    // COGNITO PLUGIN
+    implementation 'com.amplifyframework:aws-auth-cognito:1.35.4'
+
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
+
+    // QR SCANNER DEPENDENCIES
+    implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
+    implementation "androidx.multidex:multidex:2.0.1"
+    implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
+    // Another option: implementation 'com.github.yuriy-budiyev:code-scanner:Tag'
+
+    // ASYNC HTTP
+    implementation 'com.loopj.android:android-async-http:1.4.9'
+}
